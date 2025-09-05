@@ -9,6 +9,9 @@ if (process.env.NODE_ENV !== "test") {
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get("/",(req,res,next)=>{
+  res.status(200).json({message:"h!..."})
+})
 app.use("/api/vehicles", require("./routes/vehicleRoutes"));
 app.use("/api/bookings", require("./routes/bookingRoutes"));
 const { errorHandler } = require("./middleware/errorMiddleware");
